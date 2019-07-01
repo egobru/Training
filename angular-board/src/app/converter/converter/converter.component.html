@@ -8,10 +8,13 @@
             type="number"
             [(ngModel)]="kilometers"
             placeholder="0" />
+            <label for="millas">Millas</label>
+      <input  name="millas"
+              type="number"
+              placeholder="{{ miles | number:'1.2-2' }}" />
     </section>
   </fieldset>
+
   <input value="Convert" type="button" (click)="convert()">
 </form>
-<section>
-  <h4>{{ miles | number:'1.2-2' }} miles</h4>
-</section>
+

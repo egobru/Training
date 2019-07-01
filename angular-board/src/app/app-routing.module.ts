@@ -4,7 +4,16 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
-  {
+
+    {
+    path: 'security',
+    loadChildren: './security/security.module#SecurityModule'
+    },
+    {
+    path: 'notifications',
+    loadChildren: './notifications/notifications.module#NotificationsModule'
+    },
+    {
     path: 'rates',
     loadChildren: './rates/rates.module#RatesModule'
     },

@@ -1,3 +1,11 @@
+<h2>En este modulo vamos a usar el httpClient</h2>
 <h2> Currency Rates. </h2>
 <h3> From Euro to the world </h3>
 <pre>{{ currentEuroRates | json }}</pre>
+<input value="Save Rates" type="button" (click)="postRates()" />
+<input value="Refresh" type="button" (click)="getMyRates()"/>
+<input value="Delete Rates" type="button" (click)="deleteMyRates()" />
+<pre>{{ myRates | json }}</pre>
+
+<p><a [routerLink] = "['observables']">Observables</a></p>
+

@@ -56,7 +56,6 @@
             ],
             "es5BrowserSupport": true
           },
-
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -144,6 +143,122 @@
           }
         }
       }
-    }},
+    },
+    "shemat": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/shemat",
+      "sourceRoot": "projects/shemat/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/shemat",
+            "index": "projects/shemat/src/index.html",
+            "main": "projects/shemat/src/main.ts",
+            "polyfills": "projects/shemat/src/polyfills.ts",
+            "tsConfig": "projects/shemat/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/shemat/src/favicon.ico",
+              "projects/shemat/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/shemat/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/shemat/src/environments/environment.ts",
+                  "with": "projects/shemat/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "shemat:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shemat:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shemat:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shemat/src/test.ts",
+            "polyfills": "projects/shemat/src/polyfills.ts",
+            "tsConfig": "projects/shemat/tsconfig.spec.json",
+            "karmaConfig": "projects/shemat/karma.conf.js",
+            "assets": [
+              "projects/shemat/src/favicon.ico",
+              "projects/shemat/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/shemat/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/shemat/tsconfig.app.json",
+              "projects/shemat/tsconfig.spec.json",
+              "projects/shemat/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/shemat/e2e/protractor.conf.js",
+            "devServerTarget": "shemat:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shemat:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "angular-board"
 }

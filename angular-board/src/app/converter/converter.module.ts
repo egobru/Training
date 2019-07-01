@@ -21,8 +21,7 @@ const cultureFactory = (converterService: ConverterService) => {
 
 @NgModule({
   declarations: [ConverterComponent, CultureConverterComponent],
-  imports: [
-    CommonModule, ConverterRoutingModule, FormsModule],
+  imports: [CommonModule, ConverterRoutingModule, FormsModule],
   providers: [
     {
     provide: CultureConverterService,

@@ -11,6 +11,5 @@ export class CultureConverterService implements CultureConverter {
   convertDistance: (source: number) => number;
   convertTemperature: (source: number) => number;
 
-
   constructor() { }
 }

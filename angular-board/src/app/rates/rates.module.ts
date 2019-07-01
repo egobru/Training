@@ -3,14 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { RatesRoutingModule } from './rates-routing.module';
 import { RatesComponent } from './rates/rates.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ObseratesComponent } from './obserates/obserates.component';
+import { AudiInterceptorService } from './audi-interceptor.service';
 
 @NgModule({
-  declarations: [RatesComponent],
-  imports: [
-    CommonModule,
-    RatesRoutingModule,
-    HttpClientModule
-  ]
+  declarations: [RatesComponent, ObseratesComponent],
+  imports: [CommonModule, RatesRoutingModule, HttpClientModule],
+  providers: [
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AudiInterceptorService,
+    multi: true
+    }
+    ]
 })
 export class RatesModule { }

@@ -1,0 +1,35 @@
+<h2>Registro de usuarios</h2>
+<form [formGroup]="formGroup">
+  <label for="registeredOn">Registered On</label>
+  <input  name="registeredOn"
+          formControlName="registeredOn"
+          type="date" />
+          <br>
+  <label for="name">Name</label>
+  <input  name="name"
+          formControlName="name"
+          type="text" />
+          <span>{{ getError('name')}}</span>
+          <br>
+  <label for="email">E-mail</label>
+  <input  name="email"
+          formControlName="email"
+          type="email" />
+          <span>{{ getError('email')}}</span>
+          <br>
+  <label for="password">Password</label>
+  <input  name="password"
+          formControlName="password"
+          type="password" />
+          <span>{{ getError('password')}}</span>
+          <br>
+  <button (click)="register()" [disabled]="formGroup.invalid">Register me!</button>
+</form>
+
+<a routerLink="security/secret" class="button">Secret</a>
+
+
+
+
+
+

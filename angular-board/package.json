@@ -2,7 +2,8 @@
   "name": "angular-board",
   "version": "0.0.0",
   "scripts": {
-    "build:prod": "n",
+    "build:prod": "ng build --prod",
+    "build:prod:shemat": "ng build shemat --prod",
     "build:pub": "ng build --prod --output-path docs --base-href https://academiabinaria.github.io/angular-board/",
     "e2e": "ng e2e",
     "http-server": "http-server ./dist/angular-board/ -c-1 -p4271 -a localhost -o",
@@ -12,15 +13,18 @@
     "push": "git add * && git commit -m 'pub' && git push",
     "start:prod": "npm run build:prod && npm run http-server",
     "start": "ng serve --aot -o --port 4270",
+    "start:shemat": "ng serve shemat -o --port 4271",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.0.1",
+    "@angular/cdk": "~8.0.1",
     "@angular/common": "~8.0.1",
     "@angular/compiler": "~8.0.1",
     "@angular/core": "~8.0.1",
     "@angular/forms": "~8.0.1",
+    "@angular/material": "^8.0.1",
     "@angular/platform-browser": "~8.0.1",
     "@angular/platform-browser-dynamic": "~8.0.1",
     "@angular/router": "~8.0.1",
